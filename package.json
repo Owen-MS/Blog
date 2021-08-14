@@ -6,7 +6,7 @@
   "author": "heimu",
   "license": "MIT",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
+    "start": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:publish": "sh deploy.sh"
   },
