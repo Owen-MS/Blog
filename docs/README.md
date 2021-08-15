@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: 开始阅读
-heroImage: /avatar.png
+heroImage: /car.gif
 actionLink: /knowledge/
-footer: Copyright © 2021-present Owen-MS。 
+footer: Copyright © 2021-present Owen-MS。
 ---
