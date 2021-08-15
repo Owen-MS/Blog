@@ -8,8 +8,7 @@
   "scripts": {
     "start": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:publish": "sh deploy.sh",
-    "prepublish": "sh deploy.sh"
+    "docs:publish": "sh deploy.sh"
   },
   "devDependencies": {
     "vuepress": "^1.8.2"
