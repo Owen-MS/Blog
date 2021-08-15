@@ -17,7 +17,7 @@ module.exports = {
       },
       { text: '工程', link: '/wheel/' ,
         items: [
-          { text: 'webpack', link: '/wheel/webpack' }
+          { text: 'webpack', link: '/wheel/webpack/' }
         ]
       },
       { text: '收藏', link: '/collect/' },
