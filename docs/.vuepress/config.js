@@ -27,7 +27,12 @@ module.exports = {
       { text: '关于', link: '/about/' },
       { text: 'Github', link: 'https://github.com/Owen-MS/Blog' },
     ],
-    sidebar: 'auto',
+    sidebar: {
+      '/wheel/webpack/': [
+        '',
+        'browserslist'
+      ]
+    },
     sidebarDepth: 1,
   },
 }
