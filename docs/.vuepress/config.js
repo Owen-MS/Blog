@@ -30,7 +30,8 @@ module.exports = {
     sidebar: {
       '/wheel/webpack/': [
         '',
-        'browserslist'
+        'browserslist',
+        'chunk-bundle'
       ]
     },
     sidebarDepth: 1,
