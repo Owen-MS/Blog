@@ -31,7 +31,8 @@ module.exports = {
       '/wheel/webpack/': [
         '',
         'browserslist',
-        'chunk-bundle'
+        'chunk-bundle',
+        'splitChunkPlugin'
       ]
     },
     sidebarDepth: 1,
