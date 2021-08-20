@@ -34,7 +34,7 @@ module.exports = {
         'chunk-bundle',
         'splitChunkPlugin'
       ],
-      '/collect/': [
+      '/diary/': [
         '21-08-21'
       ]
     },
