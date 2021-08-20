@@ -33,6 +33,9 @@ module.exports = {
         'browserslist',
         'chunk-bundle',
         'splitChunkPlugin'
+      ],
+      '/collect/': [
+        '21-08-21'
       ]
     },
     sidebarDepth: 1,
