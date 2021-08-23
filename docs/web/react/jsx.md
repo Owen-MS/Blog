@@ -1,5 +1,5 @@
 # jsx
-## 我们写的 JSX 终将变成什么
+## 一 我们写的 JSX 终将变成什么
 - 了解jsx被React处理成什么，有利于我们理解react fiber类型。
 - 理解jsx的编译过程，方便操作children、控制React渲染，有利于便捷使用react插槽组件。
 
