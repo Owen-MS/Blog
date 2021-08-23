@@ -108,7 +108,7 @@ fiber 对应关系
 - return：一个子级 fiber 指向父级 fiber 的指针。
 - sibling: 一个 fiber 指向下一个兄弟 fiber 的指针。
 
-::: 温馨提示
+::: tip
 - 对于上述在 jsx 中写的 map 数组结构的子节点，外层会被加上 fragment ；
 - map 返回数组结构，作为 fragment 的子节点。
 :::
@@ -162,7 +162,6 @@ const newReactElement =  React.cloneElement(reactElement,{} ,...newChildren )
 ```
 一个是用来创建 element 。另一个是用来修改 element，并返回一个新的 React.element 对象。
 
-
-::: tips
+::: tip
 原来的 element 的属性是notextensible 不可拓展的， React 不能轻易让开发者修改 Element
 :::
