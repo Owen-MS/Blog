@@ -28,32 +28,34 @@ module.exports = {
       { text: '关于', link: '/about/' },
       { text: 'Github', link: 'https://github.com/Owen-MS/Blog' },
     ],
-    sidebar: [
-      {
-        title: 'React',   // 必要的
-        path: '/web/react/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-        collapsable: false, // 可选的, 默认值是 true,
-        sidebarDepth: 1,    // 可选的, 默认值是 1
-        children: [
-          {
-            title: '基础篇',
-            children: [
-              '/web/react/jsx'
-            ]
-          }
-        ]
-      }
-    ],
-    // sidebar: {
-    //   '/wheel/webpack/': [
-    //     '',
-    //     'browserslist',
-    //     'chunk-bundle',
-    //     'splitChunkPlugin'
-    //   ],
-    //   '/diary/': [
-    //     '21-08-21'
-    //   ],
+    sidebar: {
+      '/web/react/': [
+        {
+          title: 'React',   // 必要的
+          path: '/web/react/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1,    // 可选的, 默认值是 1
+          children: [
+            {
+              title: '基础篇',
+              children: [
+                '/web/react/jsx',
+                '/web/react/Component'
+              ]
+            }
+          ]
+        }
+      ],
+      '/wheel/webpack/': [
+        '',
+        'browserslist',
+        'chunk-bundle',
+        'splitChunkPlugin'
+      ],
+      '/diary/': [
+        '21-08-21'
+      ],
+    },
     //
     //   '/web/react/': [
     //     'base'
