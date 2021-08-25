@@ -25,6 +25,11 @@ React是有多种模式，基本上平时用的`legacy`模式下的React，除�
 ## 类组件state
 
 流程图
+![process](./img/state1.png);
+
+![fiber1](./img/state2.png);
+
+![fibar2](./img/state3.png);
 
 ```jsx
 import ReactDOM from 'react-dom'
@@ -65,10 +70,11 @@ export default class index extends React.Component{
 
 
 ### 类组件中的 setState 和函数组件中的 useState 有什么异同？
-相同点：
+**相同点：**
 - 首先从原理角度出发，setState和 useState 更新视图，
 底层都调用了 scheduleUpdateOnFiber 方法，而且事件驱动情况下都有批量更新规则。
-不同点：
+
+**不同点：**
 - 在不是 pureComponent 组件模式下， setState 不会浅比较两次 state 的值，只要调用 setState，
 在没有其他优化手段的前提下，就会执行更新
 。但是 useState 中的 dispatchAction 会默认比较两次 state 是否相同，然后决定是否更新组件。

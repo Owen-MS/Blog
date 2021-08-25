@@ -173,7 +173,7 @@ function Index(){
 
 ## 组件通信方式
 1. props 和 callback 方式
-2. ef 方式。
+2. ref 方式。
 3. React-redux 或 React-mobx 状态管理方式。
 4. context 上下文方式。
 5. event bus 事件总线。
