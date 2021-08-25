@@ -77,7 +77,7 @@ function renderWithHooks(
 在class组件中，除了继承React.Component,底层还加入类updater对象，组件中调用的setState和forceUpdate
 本质上是调用类Updater对象上的enqueueSetState和enqueueForceUpdate方法。
 
-::: tips
+::: tip
 react/src/ReactBaseClasses.js
 :::
 
@@ -102,22 +102,29 @@ Component.prototype.forceUpdate = function(callback) {
 初始化置空refs属性，原型链上绑定setState、forceUpdate方法。对于updater，React在实例化类组件之后会
 单独绑定update对象。
 
-::: tips 
+::: tip
+
+```js
 /* 假设我们在 constructor 中这么写 */
-constructor(){
+constructor() {
     super()
     console.log(this.props) // 打印 undefined 为什么?
 }
+```
+
 绑定 props 是在父类 Component 构造函数中，
 执行 super 等于执行 Component 函数，
 此时 props 没有作为第一个参数传给 super() ，
 在 Component 中就会找不到 props 参数，从而变成 undefined ，
 在接下来 constructor 代码中打印 props 为 undefined 。
 
+```js
 /* 解决问题 */
-constructor(props){ 
+constructor(props) { 
     super(props)
 }
+```
+
 :::
 
 ```jsx
@@ -154,6 +161,7 @@ function Index(){
 不要尝试给函数组件 prototype 绑定属性或方法，即使绑定了也没有任何作用，
 因为通过上面源码中 React 对函数组件的调用，是采用直接执行函数的方式，而不是通过new的方式。
 ::: 
+
 ## 四 函数组件和类组件本质的区别是什么？
 
 **对于类组件来说，底层只需要实例化一次，实例中保存了组件的state等状态。对于每一次更新只需要调用render
