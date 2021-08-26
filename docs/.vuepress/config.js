@@ -40,7 +40,9 @@ module.exports = {
               title: '基础篇',
               children: [
                 '/web/react/jsx',
-                '/web/react/Component'
+                '/web/react/Component',
+                '/web/react/state',
+                '/web/react/props',
               ]
             }
           ]

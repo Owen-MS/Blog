@@ -63,9 +63,10 @@ export default class index extends React.Component{
 ```
 ## 函数组件中的state
 
+
+::: tips useState注意事项
 函数组件更新就是函数的执行，在函数一次执行过程中，函数内部所有变量重新声明，
 所以改变的 state ，只有在下一次函数组件执行时才会被更新。
-::: tips useState注意事项
 ::: 
 
 
