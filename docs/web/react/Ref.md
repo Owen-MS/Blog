@@ -277,7 +277,7 @@ export default function Father(){
 }
 ```
 效果图：
-![refimg](./img/ref.gif)
+![refimg](img/ref.gif)
 
 #### 函数组件 forwardRef + useImperativeHandle
 
@@ -291,7 +291,7 @@ useImperativeHandle 接受三个参数
 
 
 forWardRef + useImperativeHandle 可以完全让函数组件也能流畅的使用Ref进行通讯。原理如下图：
-![ref](./img/ref2.png)
+![ref](img/ref2.png)
 ```jsx harmony
 // 子组件
 function Son (props,ref) {
@@ -332,7 +332,7 @@ class Index extends React.Component{
 ```
 
 效果图
-![just for](./img/ref-demo.gif)
+![just for](img/ref-demo.gif)
 
 ### 函数组件缓存数据
 
