@@ -43,6 +43,7 @@ module.exports = {
                 '/web/react/Component',
                 '/web/react/state',
                 '/web/react/props',
+                '/web/react/lifecycle',
               ]
             }
           ]
