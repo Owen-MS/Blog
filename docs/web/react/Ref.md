@@ -328,7 +328,7 @@ class Index extends React.Component{
             <button onClick={this.handerClick.bind(this)} >操控子组件</button>
         </div>
     }
-}。
+}
 ```
 
 效果图
