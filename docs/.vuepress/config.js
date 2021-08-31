@@ -44,6 +44,7 @@ module.exports = {
                 '/web/react/state',
                 '/web/react/props',
                 '/web/react/lifecycle',
+                '/web/react/Ref',
               ]
             }
           ]

@@ -25,11 +25,11 @@ React是有多种模式，基本上平时用的`legacy`模式下的React，除�
 ## 类组件state
 
 流程图
-![process](./img/state1.png);
+![process](img/state1.png);
 
-![fiber1](./img/state2.png);
+![fiber1](img/state2.png);
 
-![fibar2](./img/state3.png);
+![fibar2](img/state3.png);
 
 ```jsx
 import ReactDOM from 'react-dom'
