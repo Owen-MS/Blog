@@ -25,11 +25,11 @@ React是有多种模式，基本上平时用的`legacy`模式下的React，除�
 ## 类组件state
 
 流程图
-![process](img/state1.png);
+![process](./img/state1.png);
 
-![fiber1](img/state2.png);
+![fiber1](./img/state2.png);
 
-![fibar2](img/state3.png);
+![fibar2](./img/state3.png);
 
 ```jsx
 import ReactDOM from 'react-dom'
@@ -64,7 +64,7 @@ export default class index extends React.Component{
 ## 函数组件中的state
 
 
-::: tips useState注意事项
+::: tip useState注意事项
 函数组件更新就是函数的执行，在函数一次执行过程中，函数内部所有变量重新声明，
 所以改变的 state ，只有在下一次函数组件执行时才会被更新。
 ::: 
