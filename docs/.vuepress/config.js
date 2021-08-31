@@ -46,6 +46,12 @@ module.exports = {
                 '/web/react/lifecycle',
                 '/web/react/Ref',
               ]
+            },
+            {
+              title: '原理篇',
+              children: [
+                '/web/react/事件原理'
+              ]
             }
           ]
         }
