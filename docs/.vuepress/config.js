@@ -49,6 +49,10 @@ module.exports = {
           ]
         }
       ],
+      '/web/js/': [
+        '',
+        'token'
+      ],
       '/wheel/webpack/': [
         '',
         'browserslist',
