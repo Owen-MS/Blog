@@ -58,7 +58,8 @@ module.exports = {
       ],
       '/web/js/': [
         '',
-        'token'
+        'token',
+        'browser_module_main'
       ],
       '/wheel/webpack/': [
         '',
