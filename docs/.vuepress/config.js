@@ -50,7 +50,12 @@ module.exports = {
             {
               title: '原理篇',
               children: [
-                '/web/react/事件原理'
+                '/web/react/新老架构',
+                '/web/react/调度和时间分片',
+                '/web/react/Fiber架构的心智模型',
+                '/web/react/Fiber架构的实现原理',
+                '/web/react/Fiber架构的工作原理',
+                '/web/react/事件原理',
               ]
             }
           ]
