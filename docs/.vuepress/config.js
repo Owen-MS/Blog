@@ -21,7 +21,11 @@ module.exports = {
           { text: 'webpack', link: '/wheel/webpack/' }
         ]
       },
-      { text: '收藏', link: '/collect/' },
+      { text: '博客', link: '/collect/' ,
+        items: [
+          { text: 'skuPath', link: '/collect/skuPath/' }
+        ]
+      },
       { text: 'Go', link: '/go/' },
       { text: 'Node', link: '/node/' },
       { text: '随笔', link: '/diary/' },

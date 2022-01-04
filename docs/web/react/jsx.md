@@ -34,7 +34,7 @@ class Index extends React.Component{
 }
 ```
 ### 1 babel 处理后的样子
-![An Image](img/babel_jsx.png)
+![An Image](./img/babel_jsx.png)
 
 React Element
 ```js
@@ -53,7 +53,7 @@ createElement 参数：
 - 其他参数：依次为 children，根据顺序排列。
 
 ### 2 createElement 处理后的样子
-![createElement](img/createElement.png)
+![createElement](./img/createElement.png)
 
 从上面写的 jsx 结构来看，外层的 div 被 react.createElement 转换成 react element 对象，
 div 里面的 8 个元素分别转换成 children 子元素列表。
@@ -100,7 +100,7 @@ export const SuspenseComponent = 13;      // 对应 <Suspense>
 export const MemoComponent = 14;          // 对应 React.memo 返回的组件
 ```
 #### jsx 最终形成的 fiber 结构图
-![fiber](img/fiber.png)
+![fiber](./img/fiber.png)
 
 fiber 对应关系
 
