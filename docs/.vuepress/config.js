@@ -77,7 +77,8 @@ module.exports = {
         'splitChunkPlugin'
       ],
       '/diary/': [
-        '21-08-21'
+        '21-08-21',
+        '前端面试'
       ],
     },
     //
