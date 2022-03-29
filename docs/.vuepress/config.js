@@ -26,7 +26,7 @@ module.exports = {
           { text: 'skuPath', link: '/collect/skuPath/' }
         ]
       },
-      { text: 'Go', link: '/go/' },
+      { text: '100问', link: '/100/' },
       { text: 'Node', link: '/node/' },
       { text: '随笔', link: '/diary/' },
       { text: '关于', link: '/about/' },
@@ -81,6 +81,9 @@ module.exports = {
         '前端面试',
         '垃圾回收'
       ],
+      '/100/':[
+        '1-10'
+      ]
     },
     //
     //   '/web/react/': [
