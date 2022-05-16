@@ -23,7 +23,8 @@ module.exports = {
       },
       { text: '博客', link: '/collect/' ,
         items: [
-          { text: 'skuPath', link: '/collect/skuPath/' }
+          { text: 'skuPath', link: '/collect/skuPath/' },
+          { text: 'JS常见手写题', link: '/collect/JS手写题/' },
         ]
       },
       { text: '前端100问', link: '/100/' },
