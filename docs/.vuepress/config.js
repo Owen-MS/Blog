@@ -25,6 +25,7 @@ module.exports = {
         items: [
           { text: 'skuPath', link: '/collect/skuPath/' },
           { text: 'JS常见手写题', link: '/collect/JS手写题/' },
+          { text: '一套面试题', link: '/collect/一套面试题/' },
         ]
       },
       { text: '前端100问', link: '/100/' },
