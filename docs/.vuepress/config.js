@@ -24,8 +24,7 @@ module.exports = {
       { text: '博客', link: '/collect/' ,
         items: [
           { text: 'skuPath', link: '/collect/skuPath/' },
-          { text: 'JS常见手写题1-10', link: '/collect/JS手写题1-10/' },
-          { text: 'JS常见手写题11-20', link: '/collect/JS手写题11-20/' },
+          { text: 'JS常见手写题', link: '/collect/JS/' },
           { text: '一套面试题', link: '/collect/一套面试题/' },
         ]
       },
@@ -96,6 +95,10 @@ module.exports = {
         '71-80',
         '81-90',
         '91-100'
+      ],
+      '/collect/JS/' :[
+        '1-10',
+        '11-20',
       ]
     },
     //
