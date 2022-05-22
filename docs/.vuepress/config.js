@@ -16,6 +16,7 @@ module.exports = {
           { text: '数据结构', link: '/web/dataStructure/' },
         ]
       },
+      { text: '浏览器', link: '/browser/'},
       { text: '工程', link: '/wheel/' ,
         items: [
           { text: 'webpack', link: '/wheel/webpack/' }
@@ -106,6 +107,15 @@ module.exports = {
           '1-10',
           '11-20',
           '21-30'
+      ],
+      '/browser/': [
+          'once',
+          '2-浏览器中Javascript执行机制',
+          '3-V8工作原理',
+          '4-浏览器中的页面循环系统',
+          '5-浏览器中页面',
+          '6-浏览器中的网络',
+          '7-浏览器安全'
       ]
     },
     //
