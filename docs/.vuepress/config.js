@@ -27,6 +27,7 @@ module.exports = {
           { text: 'skuPath', link: '/collect/skuPath/' },
           { text: 'JS常见手写题', link: '/collect/JS/' },
           { text: '一套面试题', link: '/collect/一套面试题/' },
+          { text: '错误监控', link: '/collect/错误监控及上报/' },
         ]
       },
       { text: '前端100问', link: '/100/' },
