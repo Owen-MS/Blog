@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SKU和算法实现 | 黑木小课堂开课了</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="waiting for some one">
+    
+    <link rel="preload" href="/Blog/assets/css/0.styles.5b7f5b2e.css" as="style"><link rel="preload" href="/Blog/assets/js/app.f375fe27.js" as="script"><link rel="preload" href="/Blog/assets/js/2.c88ae757.js" as="script"><link rel="preload" href="/Blog/assets/js/4.5230782c.js" as="script"><link rel="prefetch" href="/Blog/assets/js/10.f427b6bd.js"><link rel="prefetch" href="/Blog/assets/js/11.9f304a35.js"><link rel="prefetch" href="/Blog/assets/js/12.30354b1f.js"><link rel="prefetch" href="/Blog/assets/js/13.95eae7c7.js"><link rel="prefetch" href="/Blog/assets/js/14.00cadfd8.js"><link rel="prefetch" href="/Blog/assets/js/15.7e69b1b3.js"><link rel="prefetch" href="/Blog/assets/js/16.86c1a2b9.js"><link rel="prefetch" href="/Blog/assets/js/17.e83a8852.js"><link rel="prefetch" href="/Blog/assets/js/18.92355088.js"><link rel="prefetch" href="/Blog/assets/js/19.8957735b.js"><link rel="prefetch" href="/Blog/assets/js/20.9a915d6e.js"><link rel="prefetch" href="/Blog/assets/js/21.85678c64.js"><link rel="prefetch" href="/Blog/assets/js/22.2c0d25ad.js"><link rel="prefetch" href="/Blog/assets/js/23.21d51aaa.js"><link rel="prefetch" href="/Blog/assets/js/24.3f674744.js"><link rel="prefetch" href="/Blog/assets/js/25.dacf3e23.js"><link rel="prefetch" href="/Blog/assets/js/26.2d73d4ee.js"><link rel="prefetch" href="/Blog/assets/js/27.31409b2d.js"><link rel="prefetch" href="/Blog/assets/js/28.37d71dd3.js"><link rel="prefetch" href="/Blog/assets/js/29.f19180a1.js"><link rel="prefetch" href="/Blog/assets/js/3.acab97b8.js"><link rel="prefetch" href="/Blog/assets/js/30.9d4cc355.js"><link rel="prefetch" href="/Blog/assets/js/31.690356d1.js"><link rel="prefetch" href="/Blog/assets/js/32.7fc83c11.js"><link rel="prefetch" href="/Blog/assets/js/33.cf78d876.js"><link rel="prefetch" href="/Blog/assets/js/34.5bd1da2f.js"><link rel="prefetch" href="/Blog/assets/js/35.fb37de13.js"><link rel="prefetch" href="/Blog/assets/js/36.83a2a909.js"><link rel="prefetch" href="/Blog/assets/js/37.0bb65fa6.js"><link rel="prefetch" href="/Blog/assets/js/38.087596ab.js"><link rel="prefetch" href="/Blog/assets/js/39.0d56f966.js"><link rel="prefetch" href="/Blog/assets/js/40.fcadfda4.js"><link rel="prefetch" href="/Blog/assets/js/41.dfef7bbe.js"><link rel="prefetch" href="/Blog/assets/js/42.db06ccfe.js"><link rel="prefetch" href="/Blog/assets/js/43.a7385a7e.js"><link rel="prefetch" href="/Blog/assets/js/44.5cf21fb0.js"><link rel="prefetch" href="/Blog/assets/js/45.78acc165.js"><link rel="prefetch" href="/Blog/assets/js/46.5c585071.js"><link rel="prefetch" href="/Blog/assets/js/47.85395c58.js"><link rel="prefetch" href="/Blog/assets/js/48.313c1cfa.js"><link rel="prefetch" href="/Blog/assets/js/49.5fafc2be.js"><link rel="prefetch" href="/Blog/assets/js/5.59a7f641.js"><link rel="prefetch" href="/Blog/assets/js/50.e3e1ae37.js"><link rel="prefetch" href="/Blog/assets/js/51.5ab1f37e.js"><link rel="prefetch" href="/Blog/assets/js/52.fcb023e8.js"><link rel="prefetch" href="/Blog/assets/js/53.5fa1c1ef.js"><link rel="prefetch" href="/Blog/assets/js/54.47d8c3fa.js"><link rel="prefetch" href="/Blog/assets/js/55.1b1649e8.js"><link rel="prefetch" href="/Blog/assets/js/56.5d99f046.js"><link rel="prefetch" href="/Blog/assets/js/57.cf117917.js"><link rel="prefetch" href="/Blog/assets/js/58.a932e8d4.js"><link rel="prefetch" href="/Blog/assets/js/59.306d018b.js"><link rel="prefetch" href="/Blog/assets/js/6.34fe87b9.js"><link rel="prefetch" href="/Blog/assets/js/60.9003beca.js"><link rel="prefetch" href="/Blog/assets/js/61.2a593451.js"><link rel="prefetch" href="/Blog/assets/js/62.025e604c.js"><link rel="prefetch" href="/Blog/assets/js/63.5182eb4a.js"><link rel="prefetch" href="/Blog/assets/js/64.327872a2.js"><link rel="prefetch" href="/Blog/assets/js/65.d528f6a9.js"><link rel="prefetch" href="/Blog/assets/js/66.e849914a.js"><link rel="prefetch" href="/Blog/assets/js/67.043b2815.js"><link rel="prefetch" href="/Blog/assets/js/68.71e6f142.js"><link rel="prefetch" href="/Blog/assets/js/69.47370d03.js"><link rel="prefetch" href="/Blog/assets/js/7.6a5ace96.js"><link rel="prefetch" href="/Blog/assets/js/70.f576c656.js"><link rel="prefetch" href="/Blog/assets/js/71.48ec8240.js"><link rel="prefetch" href="/Blog/assets/js/72.707b0cb5.js"><link rel="prefetch" href="/Blog/assets/js/73.1f985a34.js"><link rel="prefetch" href="/Blog/assets/js/74.593152e5.js"><link rel="prefetch" href="/Blog/assets/js/8.098db098.js"><link rel="prefetch" href="/Blog/assets/js/9.31cceed0.js">
+    <link rel="stylesheet" href="/Blog/assets/css/0.styles.5b7f5b2e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Blog/" class="home-link router-link-active"><!----> <span class="site-name">黑木小课堂开课了</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/Blog/web/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/web/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/dataStructure/" class="nav-link">
+  数据结构
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/browser/" class="nav-link">
+  浏览器
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工程" class="dropdown-title"><span class="title">工程</span> <span class="arrow down"></span></button> <button type="button" aria-label="工程" class="mobile-dropdown-title"><span class="title">工程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/wheel/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博客" class="dropdown-title"><span class="title">博客</span> <span class="arrow down"></span></button> <button type="button" aria-label="博客" class="mobile-dropdown-title"><span class="title">博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/collect/skuPath/" class="nav-link">
+  skuPath
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/JS/" class="nav-link">
+  JS常见手写题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/一套面试题/" class="nav-link">
+  一套面试题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/错误监控及上报/" class="nav-link">
+  错误监控
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/100/" class="nav-link">
+  前端100问
+</a></div><div class="nav-item"><a href="/Blog/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/Blog/diary/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="/Blog/about/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/Owen-MS/Blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/Blog/web/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/web/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/dataStructure/" class="nav-link">
+  数据结构
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/browser/" class="nav-link">
+  浏览器
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工程" class="dropdown-title"><span class="title">工程</span> <span class="arrow down"></span></button> <button type="button" aria-label="工程" class="mobile-dropdown-title"><span class="title">工程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/wheel/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博客" class="dropdown-title"><span class="title">博客</span> <span class="arrow down"></span></button> <button type="button" aria-label="博客" class="mobile-dropdown-title"><span class="title">博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/collect/skuPath/" class="nav-link">
+  skuPath
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/JS/" class="nav-link">
+  JS常见手写题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/一套面试题/" class="nav-link">
+  一套面试题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/错误监控及上报/" class="nav-link">
+  错误监控
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/100/" class="nav-link">
+  前端100问
+</a></div><div class="nav-item"><a href="/Blog/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/Blog/diary/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="/Blog/about/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/Owen-MS/Blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="sku和算法实现"><a href="#sku和算法实现" class="header-anchor">#</a> SKU和算法实现</h1> <h2 id="组装sku实践"><a href="#组装sku实践" class="header-anchor">#</a> 组装SKU实践</h2> <h3 id="sku-组合实现思路"><a href="#sku-组合实现思路" class="header-anchor">#</a> sku 组合实现思路</h3> <h4 id="笛卡尔积"><a href="#笛卡尔积" class="header-anchor">#</a> 笛卡尔积</h4> <p>笛卡尔积的描述</p> <ul><li>笛卡尔积是指在数学中，两个[集合] X和Y的笛卡尔积，又称[直积]，表示X * Y，第一个对象是X的成员而第二个
+对象是Y的所有可能[有序对]的其中一个成员。</li> <li>假设集合A = { a, b }, 集合B = { 0, 1, 2 }, 则两个集合的笛卡尔积为 { (a,0), (a,1), (a,2),
+(b,0), (b,1), (b,2) }</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">[</span><span class="token string">'男裤'</span><span class="token punctuation">,</span> <span class="token string">'女裤'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span><span class="token string">'黑色'</span><span class="token punctuation">,</span> <span class="token string">'白色'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span><span class="token string">'S'</span><span class="token punctuation">,</span> <span class="token string">'L'</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+<span class="token keyword">const</span> temp <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> a<span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token parameter">x</span> <span class="token operator">=&gt;</span> b<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">y</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span><span class="token operator">...</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'All temp'</span><span class="token punctuation">,</span> temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>flatMap()方法对原数组的每个成员执行一个函数，
+相当于执行Array.prototype.map(),然后对返回值组成的数组执行flat()方法。该方法返回一个新数组，
+不改变原数组。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">a</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span> b<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">o</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span>o<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">// [[1,3],[1,4]],[[2,3],[2,4]], [[3,3],[3,4]]]</span>
+a<span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span><span class="token parameter">a</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">o</span> <span class="token operator">=&gt;</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span>o<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre></div><p><img src="/Blog/assets/img/1.6a4511c9.jpeg" alt="img"></p> <h3 id="邻接矩阵"><a href="#邻接矩阵" class="header-anchor">#</a> 邻接矩阵</h3> <ul><li>用一个二维数据存放顶点间关系（边或弧）的数据，这个二维数组称为邻接矩阵。</li> <li>逻辑结构分为两部分：V和E集合，其中V是顶点，E是边。因此，用一个一维数组存放图中所有顶点数据。
+<img src="/Blog/assets/img/2.29384d89.jpeg" alt="img2"> <img src="/Blog/assets/img/3.b2825946.jpeg" alt="img3"> <img src="/Blog/assets/img/4.a5b399c3.jpeg" alt="img4"></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/4/2022, 2:08:45 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/Blog/assets/js/app.f375fe27.js" defer></script><script src="/Blog/assets/js/2.c88ae757.js" defer></script><script src="/Blog/assets/js/4.5230782c.js" defer></script>
+  </body>
+</html>

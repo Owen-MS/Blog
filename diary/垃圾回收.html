@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>V8垃圾回收机制 | 黑木小课堂开课了</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="waiting for some one">
+    
+    <link rel="preload" href="/Blog/assets/css/0.styles.5b7f5b2e.css" as="style"><link rel="preload" href="/Blog/assets/js/app.f375fe27.js" as="script"><link rel="preload" href="/Blog/assets/js/2.c88ae757.js" as="script"><link rel="preload" href="/Blog/assets/js/55.1b1649e8.js" as="script"><link rel="prefetch" href="/Blog/assets/js/10.f427b6bd.js"><link rel="prefetch" href="/Blog/assets/js/11.9f304a35.js"><link rel="prefetch" href="/Blog/assets/js/12.30354b1f.js"><link rel="prefetch" href="/Blog/assets/js/13.95eae7c7.js"><link rel="prefetch" href="/Blog/assets/js/14.00cadfd8.js"><link rel="prefetch" href="/Blog/assets/js/15.7e69b1b3.js"><link rel="prefetch" href="/Blog/assets/js/16.86c1a2b9.js"><link rel="prefetch" href="/Blog/assets/js/17.e83a8852.js"><link rel="prefetch" href="/Blog/assets/js/18.92355088.js"><link rel="prefetch" href="/Blog/assets/js/19.8957735b.js"><link rel="prefetch" href="/Blog/assets/js/20.9a915d6e.js"><link rel="prefetch" href="/Blog/assets/js/21.85678c64.js"><link rel="prefetch" href="/Blog/assets/js/22.2c0d25ad.js"><link rel="prefetch" href="/Blog/assets/js/23.21d51aaa.js"><link rel="prefetch" href="/Blog/assets/js/24.3f674744.js"><link rel="prefetch" href="/Blog/assets/js/25.dacf3e23.js"><link rel="prefetch" href="/Blog/assets/js/26.2d73d4ee.js"><link rel="prefetch" href="/Blog/assets/js/27.31409b2d.js"><link rel="prefetch" href="/Blog/assets/js/28.37d71dd3.js"><link rel="prefetch" href="/Blog/assets/js/29.f19180a1.js"><link rel="prefetch" href="/Blog/assets/js/3.acab97b8.js"><link rel="prefetch" href="/Blog/assets/js/30.9d4cc355.js"><link rel="prefetch" href="/Blog/assets/js/31.690356d1.js"><link rel="prefetch" href="/Blog/assets/js/32.7fc83c11.js"><link rel="prefetch" href="/Blog/assets/js/33.cf78d876.js"><link rel="prefetch" href="/Blog/assets/js/34.5bd1da2f.js"><link rel="prefetch" href="/Blog/assets/js/35.fb37de13.js"><link rel="prefetch" href="/Blog/assets/js/36.83a2a909.js"><link rel="prefetch" href="/Blog/assets/js/37.0bb65fa6.js"><link rel="prefetch" href="/Blog/assets/js/38.087596ab.js"><link rel="prefetch" href="/Blog/assets/js/39.0d56f966.js"><link rel="prefetch" href="/Blog/assets/js/4.5230782c.js"><link rel="prefetch" href="/Blog/assets/js/40.fcadfda4.js"><link rel="prefetch" href="/Blog/assets/js/41.dfef7bbe.js"><link rel="prefetch" href="/Blog/assets/js/42.db06ccfe.js"><link rel="prefetch" href="/Blog/assets/js/43.a7385a7e.js"><link rel="prefetch" href="/Blog/assets/js/44.5cf21fb0.js"><link rel="prefetch" href="/Blog/assets/js/45.78acc165.js"><link rel="prefetch" href="/Blog/assets/js/46.5c585071.js"><link rel="prefetch" href="/Blog/assets/js/47.85395c58.js"><link rel="prefetch" href="/Blog/assets/js/48.313c1cfa.js"><link rel="prefetch" href="/Blog/assets/js/49.5fafc2be.js"><link rel="prefetch" href="/Blog/assets/js/5.59a7f641.js"><link rel="prefetch" href="/Blog/assets/js/50.e3e1ae37.js"><link rel="prefetch" href="/Blog/assets/js/51.5ab1f37e.js"><link rel="prefetch" href="/Blog/assets/js/52.fcb023e8.js"><link rel="prefetch" href="/Blog/assets/js/53.5fa1c1ef.js"><link rel="prefetch" href="/Blog/assets/js/54.47d8c3fa.js"><link rel="prefetch" href="/Blog/assets/js/56.5d99f046.js"><link rel="prefetch" href="/Blog/assets/js/57.cf117917.js"><link rel="prefetch" href="/Blog/assets/js/58.a932e8d4.js"><link rel="prefetch" href="/Blog/assets/js/59.306d018b.js"><link rel="prefetch" href="/Blog/assets/js/6.34fe87b9.js"><link rel="prefetch" href="/Blog/assets/js/60.9003beca.js"><link rel="prefetch" href="/Blog/assets/js/61.2a593451.js"><link rel="prefetch" href="/Blog/assets/js/62.025e604c.js"><link rel="prefetch" href="/Blog/assets/js/63.5182eb4a.js"><link rel="prefetch" href="/Blog/assets/js/64.327872a2.js"><link rel="prefetch" href="/Blog/assets/js/65.d528f6a9.js"><link rel="prefetch" href="/Blog/assets/js/66.e849914a.js"><link rel="prefetch" href="/Blog/assets/js/67.043b2815.js"><link rel="prefetch" href="/Blog/assets/js/68.71e6f142.js"><link rel="prefetch" href="/Blog/assets/js/69.47370d03.js"><link rel="prefetch" href="/Blog/assets/js/7.6a5ace96.js"><link rel="prefetch" href="/Blog/assets/js/70.f576c656.js"><link rel="prefetch" href="/Blog/assets/js/71.48ec8240.js"><link rel="prefetch" href="/Blog/assets/js/72.707b0cb5.js"><link rel="prefetch" href="/Blog/assets/js/73.1f985a34.js"><link rel="prefetch" href="/Blog/assets/js/74.593152e5.js"><link rel="prefetch" href="/Blog/assets/js/8.098db098.js"><link rel="prefetch" href="/Blog/assets/js/9.31cceed0.js">
+    <link rel="stylesheet" href="/Blog/assets/css/0.styles.5b7f5b2e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Blog/" class="home-link router-link-active"><!----> <span class="site-name">黑木小课堂开课了</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/Blog/web/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/web/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/dataStructure/" class="nav-link">
+  数据结构
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/browser/" class="nav-link">
+  浏览器
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工程" class="dropdown-title"><span class="title">工程</span> <span class="arrow down"></span></button> <button type="button" aria-label="工程" class="mobile-dropdown-title"><span class="title">工程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/wheel/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博客" class="dropdown-title"><span class="title">博客</span> <span class="arrow down"></span></button> <button type="button" aria-label="博客" class="mobile-dropdown-title"><span class="title">博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/collect/skuPath/" class="nav-link">
+  skuPath
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/JS/" class="nav-link">
+  JS常见手写题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/一套面试题/" class="nav-link">
+  一套面试题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/错误监控及上报/" class="nav-link">
+  错误监控
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/100/" class="nav-link">
+  前端100问
+</a></div><div class="nav-item"><a href="/Blog/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/Blog/diary/" class="nav-link router-link-active">
+  随笔
+</a></div><div class="nav-item"><a href="/Blog/about/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/Owen-MS/Blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/Blog/web/react/" class="nav-link">
+  React
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/web/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/dataStructure/" class="nav-link">
+  数据结构
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/browser/" class="nav-link">
+  浏览器
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工程" class="dropdown-title"><span class="title">工程</span> <span class="arrow down"></span></button> <button type="button" aria-label="工程" class="mobile-dropdown-title"><span class="title">工程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/wheel/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博客" class="dropdown-title"><span class="title">博客</span> <span class="arrow down"></span></button> <button type="button" aria-label="博客" class="mobile-dropdown-title"><span class="title">博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/collect/skuPath/" class="nav-link">
+  skuPath
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/JS/" class="nav-link">
+  JS常见手写题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/一套面试题/" class="nav-link">
+  一套面试题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/错误监控及上报/" class="nav-link">
+  错误监控
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/100/" class="nav-link">
+  前端100问
+</a></div><div class="nav-item"><a href="/Blog/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/Blog/diary/" class="nav-link router-link-active">
+  随笔
+</a></div><div class="nav-item"><a href="/Blog/about/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/Owen-MS/Blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/Blog/diary/21-08-21.html" class="sidebar-link">学习计划罗列</a></li><li><a href="/Blog/diary/前端面试.html" class="sidebar-link">面试题</a></li><li><a href="/Blog/diary/垃圾回收.html" class="active sidebar-link">V8垃圾回收机制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Blog/diary/垃圾回收.html#_1、为何需要垃圾回收" class="sidebar-link">1、为何需要垃圾回收</a></li><li class="sidebar-sub-header"><a href="/Blog/diary/垃圾回收.html#_2、v8引擎的内存限制" class="sidebar-link">2、V8引擎的内存限制</a></li><li class="sidebar-sub-header"><a href="/Blog/diary/垃圾回收.html#_3、v8的垃圾回收策略" class="sidebar-link">3、V8的垃圾回收策略</a></li><li class="sidebar-sub-header"><a href="/Blog/diary/垃圾回收.html#_4、如何避免内存泄漏" class="sidebar-link">4、如何避免内存泄漏</a></li></ul></li><li><a href="/Blog/diary/url渲染.html" class="sidebar-link">从输入url到渲染发生了什么</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="v8垃圾回收机制"><a href="#v8垃圾回收机制" class="header-anchor">#</a> <a href="https://juejin.cn/post/6844904016325902344#heading-4" target="_blank" rel="noopener noreferrer">V8垃圾回收机制<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h1> <p>JavaScript代码在执行的整个生命周期中，采用来及回收策略来减少内存占比。（内存溢出而导致程序崩溃的情况）</p> <h2 id="_1、为何需要垃圾回收"><a href="#_1、为何需要垃圾回收" class="header-anchor">#</a> 1、为何需要垃圾回收</h2> <p>在V8引擎逐行执行Javascript代码的过程中，当遇到函数的情况时，会为其创建一个函数执行上下文
+（Context）环境并添加道调用堆栈的栈顶，函数的作用域（handleScope）中包含来该函数中声明的所有变量，
+当该函数执行完毕后，对应的执行上下文从栈顶弹出，函数的作用域会随之销毁，其包含的所有变量也会统一释放并被
+自然回收。如果在这个作用域被销毁的过程中，其中的变量不被回收，即持久占用内存，那么必然会导致内存暴增，从而
+引发内存泄漏导致程序的性能直线下降甚至崩溃，因此内存在使用完毕之后理当归还给操作系统以保证内存的重复利用。</p> <h2 id="_2、v8引擎的内存限制"><a href="#_2、v8引擎的内存限制" class="header-anchor">#</a> 2、V8引擎的内存限制</h2> <p>V8引擎中的内存使用也并不是无限制的。具体来说，默认情况下，V8引擎在64位
+（内存大小，2的64次方，支持4G 8G 16G 32G 64G 128G 256G内存，
+理论上可以无限支持，只要你主板上有足够的内存条）
+系统下最多使用约1.4G的内存，
+在32位（2的32次方，约4G内存）系统下最多使用约0.7G的内存。
+在这样的限制下，必然会导致在node中无法直接操作大内存对象，比如将一个2G大下的文件全部读入内存进行字符串
+分析处理，即使物理内存高达32G也无法充分利用计算机的内存资源。
+（为什么会有这种限制，因为V8设计之初只是作为浏览器端JavaScript的执行环境，
+在浏览端很少遇到大量内存场景，）</p> <p>原因：
+1、Js单线程，垃圾回收的过程阻碍了主线逻辑的执行。
+2、垃圾回收是一件非常耗时的操作</p> <p>基于以上两点，V8引擎为了减少对应用的性能造成的影响，采用了一种比较粗暴的手段，那就是直接限制堆内存
+的大小，毕竟在浏览器端一般也不会遇到需要操作几个G内存这样的场景。但是在node端，涉及到的I/O操作可能
+会比浏览器端更加复杂多样，因此更有可能出现内存溢出的情况。不过也没关系，V8为我们提供了可配置项来让我们手动
+地调整内存大小，但是需要在node初始化进行配置，我们可以通过手动配置。</p> <div class="language- extra-class"><pre class="language-text"><code>// 设置新生代内存中单个半空间的内存最小值，单位MB
+node --min-semi-space-size=1024 xxx.js
+
+// 设置新生代内存中单个半空间的内存最大值，单位MB
+node --max-semi-space-size=1024 xxx.js
+
+// 设置老生代内存最大值，单位MB
+node --max-old-space-size=2048 xxx.js
+</code></pre></div><h2 id="_3、v8的垃圾回收策略"><a href="#_3、v8的垃圾回收策略" class="header-anchor">#</a> 3、V8的垃圾回收策略</h2> <p>V8的垃圾回收策略主要是基于分代式垃圾回收机制，其根据对象的存活时间将内存的垃圾回收进行不同的分代，
+然后对不同的分代采用不同的垃圾回收算法。</p> <h3 id="_3-1-v8的内存结构"><a href="#_3-1-v8的内存结构" class="header-anchor">#</a> 3.1 V8的内存结构</h3> <ul><li>新生代（new_space）: 大多数的对象都会被分配在这里，这个区域相对较小但是垃圾回收特别频繁，该区域
+被分为两半，一半用来分配内存，另一半用于在垃圾回收时将需要保留的对象复制进来。</li> <li>老生代（old_space): 新生代中的对象在存活一段时间后就会被转移到老生代内存区，相对于新生代
+该内存区域的垃圾回收频率较低。老生代又分为老生代指针区和老生代数据区，前者包含大多数可能存在指向
+其他对象的指针的对象，后者只保存原始数据对象，这些对象没有指向其他对象的指针。</li> <li>大对象区（large_object_space): 存放体积超越其他区域大小的对象，每个对象都会有自己的内存，
+垃圾回收不会移动大对象区。</li> <li>代码区（code_space): 代码对象，会被分配在这里，唯一拥有执行权限的内存区域。</li> <li>map区（map_space): 存放Cell和Map，每个区域都是存放相同大小的元素，结构简单。</li></ul> <h3 id="_3-2-新生代"><a href="#_3-2-新生代" class="header-anchor">#</a> 3.2 新生代</h3> <p>新生代主要用于存放存活时间比较短的对象。采用scavenge算法。</p> <p>scavenge是一种典型的牺牲空间换取时间的算法。周期短，较适合，不适合老生代内存。</p> <p>分为 From 和 To两个空间。scavenge算法的垃圾回收过程主要就是将存活对象在From和To空间之间进行复制，
+同时完成两个空间之间的角色互换，因此该算法的缺点也比较明显，浪费了一般的内存用于复制。</p> <p>这两个空间，始终只有一个处于使用状态，另一个处于闲置状态。我们的程序中声明的对象首先被分配到
+From空间，当进行垃圾回收时，如果From空间中尚有存活对象，则会被复制到To空间进行保存，
+非存活的对象会被自动回收。当复制完成后，From空间和To空间完成一次角色互换，To空间会变为新的From空间，
+原来的From空间则变成To空间。</p> <h3 id="_3-3-对象晋升"><a href="#_3-3-对象晋升" class="header-anchor">#</a> 3.3 对象晋升</h3> <p>当一个对象在经过多次复制之后依旧存活，那么它会被认为是一个生命周期长的对象，在下一次进行垃圾回收时，
+该对象会被直接转移到老生代中，这种对象从新生代转移到老生代的过程我们称之为晋升。</p> <p>对象晋升的条件主要有两个：</p> <ul><li>对象是否经过一次scavenge算法</li> <li>To空间的内存占比是否已经超过25%</li></ul> <p>默认情况下，我们常见的对象都会分配在From空间中，当进行垃圾回收时，在将对象从From空间复制到To空间
+之前，会先检查该对象的内存地址来判断是都已经经历过一次Scavenge算法，如果地址已经发生变动则会将对象
+转移到老生代中，不回再被复制到To空间。
+如果对象没有经过过scavenge算法，会被复制到To空间，但是如果此时To空间的内存占比已经超过25%，则该对象
+依旧会被转移到新生代。</p> <p>之所以会有25%的内存闲置是因为To空间在经历过以scavenge算法后会和From空间完成角色互换，会变为From空间，
+后续的内存分配都是在From空间中进行的，如果内存使用过高甚至溢出，则会影响后续对象的分配，因此超过这个
+限制之后对象会被直接转移到老生代中进行管理。</p> <h3 id="_3-4-老生代"><a href="#_3-4-老生代" class="header-anchor">#</a> 3.4 老生代</h3> <p>老生代管理大量存活对象，所以不使用scavenge（浪费内存），采用新的算法Mark-sweep（标记清除）和
+Mark-Compact（标记整理）来进行管理。</p> <p>2012年所有的现在浏览器都废弃-引用计数，原理就是，看对象是否还有其他引用指向它，如果没有指向该对象的引用，
+则该对象会被视为垃圾并被垃圾回收器回收。（循环引用就会出现问题）</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    a<span class="token punctuation">.</span>a1 <span class="token operator">=</span> b<span class="token punctuation">;</span>
+    b<span class="token punctuation">.</span>b1 <span class="token operator">=</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>foo执行完毕后，函数的作用域已经被销毁，作用域中包含的变量a和b本应该可以被回收，但是因为采用了引用
+计数的算法，两个变量均存在指向自身的引用，因此依旧无法被回收，导致内存泄漏。</p> <p>Mark-sweep分为标记和清除两个阶段，在标记阶段会遍历堆中的所有对象，然后标记活着的对象，在清除阶段中，
+会将死亡的对象进行清除。Mark-Sweep算法主要时通过判断某个对象是否可以被访问到，从而知道该对象
+是否应该被回收，具体步骤</p> <ul><li>垃圾回收器会在内部构建一个根列表，用于从根节点出发去寻找那些可以被访问到的变量。比如在Javascript
+中，window全局对象可以比堪称一个根节点。</li> <li>然后，垃圾回收器从所有根节点出发，遍历其可以访问到的子节点，并将其标记为活动的，根节点不能
+到达的地方即为非活动的，将会视为垃圾。</li> <li>最后，垃圾回收器将会释放所有非活动的内存块，并将其归还给操作系统。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>以下几种情况都可以视为根节点
+
+1. 全局对象
+2. 本地函数的局部遍历和参数
+3. 当前嵌套调用链上的其他函数的变量和参数
+</code></pre></div><p>但其实mark-sweep算法存在一个问题， 就是在经历过一次标记清除后，内存空间可能会出现不连续的状态，
+因为我们所清理的对象的内存地址可能不是连续的，所以就会出现内存碎片的问题，导致后面如果需要分配一个大对象
+而空闲内存不足以分配，就会提前触发垃圾回收，而这次垃圾回收其实是没有必要的，因为我们确实有很多空闲内存，
+只不过是不连续的。</p> <p>为了解决这种内存碎片的问题，mark-compact算法被提了出来，该算法主要就是用来解决内存碎片化问题的，
+回收过程中将死亡对象清除后，在整理过程中，会将活动的对象往堆内存的一侧进行移动，移动完成后再清理掉
+边界外的全部内存。</p> <p>JS单线程机制，垃圾回收会阻碍主线程同步任务执行，待执行完垃圾回收后才会再次恢复执行主任务的逻辑，
+这种行为被称为全停顿（stop-the-world）。在标记阶段同样会阻碍主线程的执行，一般来说，老生代会
+保存大量存活的对象，如果在标记阶段将整个堆内存遍历一遍，那么势必会造成严重的卡顿。</p> <p>所以，V8引擎提出了，Increment mark 增量标记的。先标记堆内存的一部分对象，然后暂停，将执行权重新
+交给JS主线程，待主线程任务执行完毕后再从原来暂停标记的地方继续标记，直到标记完整个堆内存。
+这个理念有点像React的Fiber架构，只有在浏览器的空闲时间才回去遍历Fiber Tree执行对于的任务，否则
+延迟执行，尽可能少的影响主线程的任务，避免应用卡顿，提升应用性能。</p> <p>陆续引入 延迟清理（lazy sweeping）、增量式整理（Incremental compaction），让清理和整理的过程
+也变成增量式。同时为了充分利用多核CPU的性能，也将引入了并行标记和并行清理，进一步🉐️减少垃圾回收对
+主线程的影响，为应用提升更多的性能。</p> <h2 id="_4、如何避免内存泄漏"><a href="#_4、如何避免内存泄漏" class="header-anchor">#</a> 4、如何避免内存泄漏</h2> <h3 id="_4-1-尽可能少地创建全局变量"><a href="#_4-1-尽可能少地创建全局变量" class="header-anchor">#</a> 4.1 尽可能少地创建全局变量</h3> <h3 id="_4-2-手动清除定时器"><a href="#_4-2-手动清除定时器" class="header-anchor">#</a> 4.2 手动清除定时器</h3> <h3 id="_4-3-少用闭包"><a href="#_4-3-少用闭包" class="header-anchor">#</a> 4.3 少用闭包</h3> <h3 id="_4-4-清除dom引用"><a href="#_4-4-清除dom引用" class="header-anchor">#</a> 4.4 清除DOM引用</h3> <h3 id="_4-5-弱引用"><a href="#_4-5-弱引用" class="header-anchor">#</a> 4.5 弱引用</h3> <p>ES6中新增了两个有效的数据结构，weakMap和weakSet，就是为了解决内存泄漏的问题而诞生的。
+其表示弱引用，它的键名所引用的对象均为弱引用，弱引用是指垃圾回收过程中不回将键名对该对象的引用考虑进去，
+只要所引用的对象没有其他的引用了，垃圾回收机制就会释放该对象所占用的内存。这也就意味着我们不需要关心
+weakMap中键名对其他对象的引用，也不需要手动的进行引用清除。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">1/5/2022, 3:22:56 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Blog/diary/前端面试.html" class="prev">
+        面试题
+      </a></span> <span class="next"><a href="/Blog/diary/url渲染.html">
+        从输入url到渲染发生了什么
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Blog/assets/js/app.f375fe27.js" defer></script><script src="/Blog/assets/js/2.c88ae757.js" defer></script><script src="/Blog/assets/js/55.1b1649e8.js" defer></script>
+  </body>
+</html>

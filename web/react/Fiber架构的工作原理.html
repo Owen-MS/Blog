@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fiber架构的工作原理 | 黑木小课堂开课了</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="waiting for some one">
+    
+    <link rel="preload" href="/Blog/assets/css/0.styles.5b7f5b2e.css" as="style"><link rel="preload" href="/Blog/assets/js/app.f375fe27.js" as="script"><link rel="preload" href="/Blog/assets/js/2.c88ae757.js" as="script"><link rel="preload" href="/Blog/assets/js/16.86c1a2b9.js" as="script"><link rel="prefetch" href="/Blog/assets/js/10.f427b6bd.js"><link rel="prefetch" href="/Blog/assets/js/11.9f304a35.js"><link rel="prefetch" href="/Blog/assets/js/12.30354b1f.js"><link rel="prefetch" href="/Blog/assets/js/13.95eae7c7.js"><link rel="prefetch" href="/Blog/assets/js/14.00cadfd8.js"><link rel="prefetch" href="/Blog/assets/js/15.7e69b1b3.js"><link rel="prefetch" href="/Blog/assets/js/17.e83a8852.js"><link rel="prefetch" href="/Blog/assets/js/18.92355088.js"><link rel="prefetch" href="/Blog/assets/js/19.8957735b.js"><link rel="prefetch" href="/Blog/assets/js/20.9a915d6e.js"><link rel="prefetch" href="/Blog/assets/js/21.85678c64.js"><link rel="prefetch" href="/Blog/assets/js/22.2c0d25ad.js"><link rel="prefetch" href="/Blog/assets/js/23.21d51aaa.js"><link rel="prefetch" href="/Blog/assets/js/24.3f674744.js"><link rel="prefetch" href="/Blog/assets/js/25.dacf3e23.js"><link rel="prefetch" href="/Blog/assets/js/26.2d73d4ee.js"><link rel="prefetch" href="/Blog/assets/js/27.31409b2d.js"><link rel="prefetch" href="/Blog/assets/js/28.37d71dd3.js"><link rel="prefetch" href="/Blog/assets/js/29.f19180a1.js"><link rel="prefetch" href="/Blog/assets/js/3.acab97b8.js"><link rel="prefetch" href="/Blog/assets/js/30.9d4cc355.js"><link rel="prefetch" href="/Blog/assets/js/31.690356d1.js"><link rel="prefetch" href="/Blog/assets/js/32.7fc83c11.js"><link rel="prefetch" href="/Blog/assets/js/33.cf78d876.js"><link rel="prefetch" href="/Blog/assets/js/34.5bd1da2f.js"><link rel="prefetch" href="/Blog/assets/js/35.fb37de13.js"><link rel="prefetch" href="/Blog/assets/js/36.83a2a909.js"><link rel="prefetch" href="/Blog/assets/js/37.0bb65fa6.js"><link rel="prefetch" href="/Blog/assets/js/38.087596ab.js"><link rel="prefetch" href="/Blog/assets/js/39.0d56f966.js"><link rel="prefetch" href="/Blog/assets/js/4.5230782c.js"><link rel="prefetch" href="/Blog/assets/js/40.fcadfda4.js"><link rel="prefetch" href="/Blog/assets/js/41.dfef7bbe.js"><link rel="prefetch" href="/Blog/assets/js/42.db06ccfe.js"><link rel="prefetch" href="/Blog/assets/js/43.a7385a7e.js"><link rel="prefetch" href="/Blog/assets/js/44.5cf21fb0.js"><link rel="prefetch" href="/Blog/assets/js/45.78acc165.js"><link rel="prefetch" href="/Blog/assets/js/46.5c585071.js"><link rel="prefetch" href="/Blog/assets/js/47.85395c58.js"><link rel="prefetch" href="/Blog/assets/js/48.313c1cfa.js"><link rel="prefetch" href="/Blog/assets/js/49.5fafc2be.js"><link rel="prefetch" href="/Blog/assets/js/5.59a7f641.js"><link rel="prefetch" href="/Blog/assets/js/50.e3e1ae37.js"><link rel="prefetch" href="/Blog/assets/js/51.5ab1f37e.js"><link rel="prefetch" href="/Blog/assets/js/52.fcb023e8.js"><link rel="prefetch" href="/Blog/assets/js/53.5fa1c1ef.js"><link rel="prefetch" href="/Blog/assets/js/54.47d8c3fa.js"><link rel="prefetch" href="/Blog/assets/js/55.1b1649e8.js"><link rel="prefetch" href="/Blog/assets/js/56.5d99f046.js"><link rel="prefetch" href="/Blog/assets/js/57.cf117917.js"><link rel="prefetch" href="/Blog/assets/js/58.a932e8d4.js"><link rel="prefetch" href="/Blog/assets/js/59.306d018b.js"><link rel="prefetch" href="/Blog/assets/js/6.34fe87b9.js"><link rel="prefetch" href="/Blog/assets/js/60.9003beca.js"><link rel="prefetch" href="/Blog/assets/js/61.2a593451.js"><link rel="prefetch" href="/Blog/assets/js/62.025e604c.js"><link rel="prefetch" href="/Blog/assets/js/63.5182eb4a.js"><link rel="prefetch" href="/Blog/assets/js/64.327872a2.js"><link rel="prefetch" href="/Blog/assets/js/65.d528f6a9.js"><link rel="prefetch" href="/Blog/assets/js/66.e849914a.js"><link rel="prefetch" href="/Blog/assets/js/67.043b2815.js"><link rel="prefetch" href="/Blog/assets/js/68.71e6f142.js"><link rel="prefetch" href="/Blog/assets/js/69.47370d03.js"><link rel="prefetch" href="/Blog/assets/js/7.6a5ace96.js"><link rel="prefetch" href="/Blog/assets/js/70.f576c656.js"><link rel="prefetch" href="/Blog/assets/js/71.48ec8240.js"><link rel="prefetch" href="/Blog/assets/js/72.707b0cb5.js"><link rel="prefetch" href="/Blog/assets/js/73.1f985a34.js"><link rel="prefetch" href="/Blog/assets/js/74.593152e5.js"><link rel="prefetch" href="/Blog/assets/js/8.098db098.js"><link rel="prefetch" href="/Blog/assets/js/9.31cceed0.js">
+    <link rel="stylesheet" href="/Blog/assets/css/0.styles.5b7f5b2e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Blog/" class="home-link router-link-active"><!----> <span class="site-name">黑木小课堂开课了</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/Blog/web/react/" class="nav-link router-link-active">
+  React
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/web/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/dataStructure/" class="nav-link">
+  数据结构
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/browser/" class="nav-link">
+  浏览器
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工程" class="dropdown-title"><span class="title">工程</span> <span class="arrow down"></span></button> <button type="button" aria-label="工程" class="mobile-dropdown-title"><span class="title">工程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/wheel/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博客" class="dropdown-title"><span class="title">博客</span> <span class="arrow down"></span></button> <button type="button" aria-label="博客" class="mobile-dropdown-title"><span class="title">博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/collect/skuPath/" class="nav-link">
+  skuPath
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/JS/" class="nav-link">
+  JS常见手写题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/一套面试题/" class="nav-link">
+  一套面试题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/错误监控及上报/" class="nav-link">
+  错误监控
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/100/" class="nav-link">
+  前端100问
+</a></div><div class="nav-item"><a href="/Blog/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/Blog/diary/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="/Blog/about/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/Owen-MS/Blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/Blog/web/react/" class="nav-link router-link-active">
+  React
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/web/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/css/" class="nav-link">
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/network/" class="nav-link">
+  网络
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/web/dataStructure/" class="nav-link">
+  数据结构
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/browser/" class="nav-link">
+  浏览器
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工程" class="dropdown-title"><span class="title">工程</span> <span class="arrow down"></span></button> <button type="button" aria-label="工程" class="mobile-dropdown-title"><span class="title">工程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/wheel/webpack/" class="nav-link">
+  webpack
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="博客" class="dropdown-title"><span class="title">博客</span> <span class="arrow down"></span></button> <button type="button" aria-label="博客" class="mobile-dropdown-title"><span class="title">博客</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Blog/collect/skuPath/" class="nav-link">
+  skuPath
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/JS/" class="nav-link">
+  JS常见手写题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/一套面试题/" class="nav-link">
+  一套面试题
+</a></li><li class="dropdown-item"><!----> <a href="/Blog/collect/错误监控及上报/" class="nav-link">
+  错误监控
+</a></li></ul></div></div><div class="nav-item"><a href="/Blog/100/" class="nav-link">
+  前端100问
+</a></div><div class="nav-item"><a href="/Blog/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/Blog/diary/" class="nav-link">
+  随笔
+</a></div><div class="nav-item"><a href="/Blog/about/" class="nav-link">
+  关于
+</a></div><div class="nav-item"><a href="https://github.com/Owen-MS/Blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/Blog/web/react/" class="sidebar-heading clickable router-link-active open"><span>React</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>基础篇</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>原理篇</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Blog/web/react/新老架构.html" class="sidebar-link">结构脉络梳理</a></li><li><a href="/Blog/web/react/调度和时间分片.html" class="sidebar-link">调度与时间片</a></li><li><a href="/Blog/web/react/Fiber架构的心智模型.html" class="sidebar-link">Fiber的心智模型</a></li><li><a href="/Blog/web/react/Fiber架构的实现原理.html" class="sidebar-link">Fiber架构的实现原理</a></li><li><a href="/Blog/web/react/Fiber架构的工作原理.html" class="active sidebar-link">Fiber架构的工作原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Blog/web/react/Fiber架构的工作原理.html#什么是双缓存" class="sidebar-link">什么是双缓存</a></li><li class="sidebar-sub-header"><a href="/Blog/web/react/Fiber架构的工作原理.html#双缓存fiber树" class="sidebar-link">双缓存Fiber树</a></li><li class="sidebar-sub-header"><a href="/Blog/web/react/Fiber架构的工作原理.html#mount时" class="sidebar-link">mount时</a></li><li class="sidebar-sub-header"><a href="/Blog/web/react/Fiber架构的工作原理.html#update时" class="sidebar-link">update时</a></li></ul></li><li><a href="/Blog/web/react/事件原理.html" class="sidebar-link">事件原理</a></li></ul></section></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="fiber架构的工作原理"><a href="#fiber架构的工作原理" class="header-anchor">#</a> Fiber架构的工作原理</h1> <p>我们首先了解了Fiber是什么，Fiber节点可以保存相应的DOM节点，相应的Fiber节点构成的Fiber树就
+对应DOM树。</p> <h2 id="什么是双缓存"><a href="#什么是双缓存" class="header-anchor">#</a> 什么是双缓存</h2> <p>在内存中g构建并直接替换的技术-叫做<a href="https://baike.baidu.com/item/%E5%8F%8C%E7%BC%93%E5%86%B2" target="_blank" rel="noopener noreferrer">双缓存<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>React使用&quot;双缓存&quot;来完成并Fiber的构建和替换-对应DOM树的创建和更新。</p> <h2 id="双缓存fiber树"><a href="#双缓存fiber树" class="header-anchor">#</a> 双缓存Fiber树</h2> <ul><li>fiberRoot: 首次构建应用，创建一个fiberRoot，作为整个应用的根基</li> <li>rootFiber：如下通过ReactDOM.render渲染出来的，比如App可以作为一个rootFiber。一个React应用可以
+有多个ReactDOM.render创建的rootFiber，但是只能有一个fiberRoot（应用根节点）。</li></ul> <div class="language-jsx harmony extra-class"><pre class="language-jsx"><code>ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">App</span></span><span class="token punctuation">/&gt;</span></span><span class="token punctuation">,</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'app'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>第一次挂载的过程中，会将 fiberRoot 和 rootFiber 建立起关联。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">createFiberRoot</span><span class="token punctuation">(</span><span class="token parameter">containerInfo<span class="token punctuation">,</span>tag</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">/* 创建一个root */</span>
+    <span class="token keyword">const</span> root <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FiberRootNode</span><span class="token punctuation">(</span>containerInfo<span class="token punctuation">,</span>tag<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> rootFiber <span class="token operator">=</span> <span class="token function">createHostRootFiber</span><span class="token punctuation">(</span>tag<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root<span class="token punctuation">.</span>current <span class="token operator">=</span> rootFiber
+    <span class="token keyword">return</span> root
+<span class="token punctuation">}</span>
+</code></pre></div><p>当前屏幕上显示对应内容的 - current Fiber
+正在内存中构建的 - workInProgress Fiber</p> <p>他们通过alternate属性来连接</p> <div class="language-js extra-class"><pre class="language-js"><code>currentFiber<span class="token punctuation">.</span>alternate <span class="token operator">=</span> workInProgressFiber<span class="token punctuation">;</span>
+
+workInProgressFiber<span class="token punctuation">.</span>alternate <span class="token operator">=</span> currentFiber<span class="token punctuation">;</span>
+</code></pre></div><p><img src="/Blog/assets/img/fiber_fiberRoot.8042bb81.png" alt="rootFiber"></p> <p>React应用的根节点通过使current指针在不同的fiber树rootFiber间切换来完成current Fiber树指向的切换。</p> <p>即当workInProgress Fiber树构建完成交给Renderer渲染在页面上后，
+应用根节点的current指针指向workInProgress Fiber树，
+此时workInProgress Fiber树就变为current Fiber树。</p> <p>每次状态更新都会产生新的workInProgress Fiber树，
+通过current与workInProgress的替换，完成DOM更新。</p> <h2 id="mount时"><a href="#mount时" class="header-anchor">#</a> mount时</h2> <h2 id="update时"><a href="#update时" class="header-anchor">#</a> update时</h2></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">9/12/2021, 8:50:43 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Blog/web/react/Fiber架构的实现原理.html" class="prev">
+        Fiber架构的实现原理
+      </a></span> <span class="next"><a href="/Blog/web/react/事件原理.html">
+        事件原理
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Blog/assets/js/app.f375fe27.js" defer></script><script src="/Blog/assets/js/2.c88ae757.js" defer></script><script src="/Blog/assets/js/16.86c1a2b9.js" defer></script>
+  </body>
+</html>
